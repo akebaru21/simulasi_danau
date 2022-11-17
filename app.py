@@ -24,8 +24,8 @@ df_outflow = pd.read_csv(url_outflow)
 
 
 #membangun komponen
-header = html.H1("Aplikasi Simulasi Kapasitas Embung", style={'textAlign': 'center'})
-subtitle = html.H2("MK Kapita Selekta Matematika Komputasi (MA4103)", style={'textAlign': 'center'})
+header = html.H1("Aplikasi Simulasi Kapasitas Embung C ITERA", style={'textAlign': 'center'})
+subtitle = html.H2("MK Kapita Selekta Matematika Komputasi (MA4103) Kelompok 1", style={'textAlign': 'center'})
 inflow_fig = go.FigureWidget()
 inflow_fig.add_scatter(name='Inflow', x=df_inflow['Bulan'], y=df_inflow['Data'])
 inflow_fig.layout.title = 'Inflow'
