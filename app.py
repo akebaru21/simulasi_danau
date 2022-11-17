@@ -17,7 +17,7 @@ app = dash.Dash(__name__, server=server, external_stylesheets=[dbc.themes.BOOTST
 #membaca file
 sheet_inflow = "inflow"
 sheet_outflow = "outflow"
-url_inflow = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTzEHx9j46kH6GAYlbyKRCz5-Cbic2OaX2TMjFY1XI8uWLifG37k-CR80YReu8KsCntEjdvMOMmlkpy/pub?output=csv&sheet={sheet_inflow}"
+url_inflow = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQWYZulM9HeQR8XmcBD9EHnS2-ZhdO8fnnHqSsPmKqh-qis_y95Ixitz0XVaMDoXm8q8b0e0Ap5xAa-/pub?gid=1924073950&single=true&output=csv&sheet={Air_Masuk}"
 url_outflow = url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTzEHx9j46kH6GAYlbyKRCz5-Cbic2OaX2TMjFY1XI8uWLifG37k-CR80YReu8KsCntEjdvMOMmlkpy/pub?output=csv&sheet={sheet_outflow}"
 df_inflow = pd.read_csv(url_inflow)
 df_outflow = pd.read_csv(url_outflow)
@@ -79,7 +79,7 @@ def graph_update(n_clicks):
         inout = df_inflow["Data"].values - df_outflow["Data"].values
         N = len(inout)
         u = np.zeros(N)
-        u0 = 4000
+        u0 = 58220 # Volume Embung Awal dari UPT Kawasan. Satuan m^3
         u[0] = u0
         dt = 1
 
