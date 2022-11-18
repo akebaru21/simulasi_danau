@@ -27,7 +27,7 @@ df_outflow = pd.read_csv(url_outflow)
 header = html.H1("Aplikasi Simulasi Kapasitas Embung C ITERA", style={'textAlign': 'center'})
 subtitle = html.H2("MK Kapita Selekta Matematika Komputasi (MA4103) Kelompok 1", style={'textAlign': 'center'})
 inflow_fig = go.FigureWidget()
-inflow_fig.add_scatter(name='Inflow', x=df_inflow['Bulan'], y=df_inflow['Data'])
+inflow_fig.add_scatter(name='Inflow', x=df_inflow['Bulan'], y=df_inflow['Debit Air Hujan (M3/Bulan)'])
 inflow_fig.layout.title = 'Inflow'
 
 outflow_fig = go.FigureWidget()
