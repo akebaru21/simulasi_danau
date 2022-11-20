@@ -18,7 +18,7 @@ app = dash.Dash(__name__, server=server, external_stylesheets=[dbc.themes.BOOTST
 sheet_inflow = "inflow"
 sheet_outflow = "outflow"
 url_inflow = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQWYZulM9HeQR8XmcBD9EHnS2-ZhdO8fnnHqSsPmKqh-qis_y95Ixitz0XVaMDoXm8q8b0e0Ap5xAa-/pub?gid=1924073950&single=true&output=csv&sheet={Air_Masuk}"
-url_outflow ="https://docs.google.com/spreadsheets/d/e/2PACX-1vQWYZulM9HeQR8XmcBD9EHnS2-ZhdO8fnnHqSsPmKqh-qis_y95Ixitz0XVaMDoXm8q8b0e0Ap5xAa-/pubhtml?gid=1925455528&single=true&output=csv&sheet={Air_Keluar}"
+url_outflow = url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQWYZulM9HeQR8XmcBD9EHnS2-ZhdO8fnnHqSsPmKqh-qis_y95Ixitz0XVaMDoXm8q8b0e0Ap5xAa-/pub?gid=1925455528&single=true&output=csv&sheet={Air_Keluar}"
 df_inflow = pd.read_csv(url_inflow)
 df_outflow = pd.read_csv(url_outflow)
 
@@ -76,7 +76,7 @@ def graph_update(n_clicks):
     # filtering based on the slide and dropdown selection
     if n_clicks >=1:
         #program numerik ---start----
-        inout = df_inflow["Data"].values - df_outflow["Data"].values
+        inout = df_inflow["Debit Air Hujan (M3/Bulan)"].values - df_outflow["Debit Air Menguap (M3/Bulan)"].values
         N = len(inout)
         u = np.zeros(N)
         u0 = 58220 # Volume Embung Awal dari UPT Kawasan. Satuan m^3
@@ -101,8 +101,7 @@ def graph_update(n_clicks):
 
         return simulation_fig
 
-    
-
+   
 
 #jalankan aplikasi
 if __name__ == '__main__':
