@@ -35,7 +35,7 @@ outflow_fig.add_scatter(name='Outflow', x=df_outflow['Bulan'], y=df_outflow['Deb
 outflow_fig.layout.title = 'Debit Air Keluar'
 
 simulation_fig = go.FigureWidget()
-# simulation_fig.add_scatter(name='Outflow', x=df_outflow['Bulan'], y=df_outflow['Data'])
+#simulation_fig.add_scatter(name='Outflow', x=df_outflow['Bulan'])
 simulation_fig.layout.title = 'Simulation'
 
 
@@ -79,7 +79,7 @@ def graph_update(n_clicks):
         inout = df_inflow["Debit Air Hujan (M3/Bulan)"].values - df_outflow["Debit Air Menguap (M3/Bulan)"].values
         N = len(inout)
         u = np.zeros(N)
-        u0 = 58220 # Volume Embung Awal dari UPT Kawasan. Satuan m^3
+        u0 = 58420 # Volume Embung Awal dari UPT Kawasan. Satuan m^3
         u[0] = u0
         dt = 1
 
@@ -101,8 +101,9 @@ def graph_update(n_clicks):
 
         return simulation_fig
 
-   
+    
+
 
 #jalankan aplikasi
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(debug=True)
