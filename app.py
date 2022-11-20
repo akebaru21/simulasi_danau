@@ -18,7 +18,7 @@ app = dash.Dash(__name__, server=server, external_stylesheets=[dbc.themes.BOOTST
 sheet_inflow = "inflow"
 sheet_outflow = "outflow"
 url_inflow = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQWYZulM9HeQR8XmcBD9EHnS2-ZhdO8fnnHqSsPmKqh-qis_y95Ixitz0XVaMDoXm8q8b0e0Ap5xAa-/pub?gid=1924073950&single=true&output=csv&sheet={Air_Masuk}"
-url_outflow = url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTzEHx9j46kH6GAYlbyKRCz5-Cbic2OaX2TMjFY1XI8uWLifG37k-CR80YReu8KsCntEjdvMOMmlkpy/pub?output=csv&sheet={sheet_outflow}"
+url_outflow ="https://docs.google.com/spreadsheets/d/e/2PACX-1vQWYZulM9HeQR8XmcBD9EHnS2-ZhdO8fnnHqSsPmKqh-qis_y95Ixitz0XVaMDoXm8q8b0e0Ap5xAa-/pub?gid=1924073950&single=true&output=csv&sheet={Air_Keluar}"
 df_inflow = pd.read_csv(url_inflow)
 df_outflow = pd.read_csv(url_outflow)
 
@@ -31,7 +31,7 @@ inflow_fig.add_scatter(name='Inflow', x=df_inflow['Bulan'], y=df_inflow['Debit A
 inflow_fig.layout.title = 'Debit Air Masuk'
 
 outflow_fig = go.FigureWidget()
-outflow_fig.add_scatter(name='Outflow', x=df_outflow['Bulan'], y=df_outflow['Data'])
+outflow_fig.add_scatter(name='Outflow', x=df_outflow['Bulan'], y=df_outflow['Debit Air Menguap (M3/Bulan)'])
 outflow_fig.layout.title = 'Debit Air Keluar'
 
 simulation_fig = go.FigureWidget()
