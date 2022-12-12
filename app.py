@@ -27,7 +27,7 @@ df_outflow = pd.read_csv(url_outflow)
 header = html.H1("Aplikasi Simulasi Kapasitas Embung C ITERA", style={'textAlign': 'center'})
 subtitle = html.H2("MK Kapita Selekta Matematika Komputasi (MA4103) Kelompok 1", style={'textAlign': 'center'})
 inflow_fig = go.FigureWidget()
-inflow_fig.add_scatter(name='Inflow', x=df_inflow['Bulan'], y=df_inflow['Debit Air Hujan (M3/Bulan)'])
+inflow_fig.add_scatter(name='Inflow', x=df_inflow['Bulan'], y=df_inflow['Total'])
 inflow_fig.layout.title = 'Debit Air Masuk'
 
 outflow_fig = go.FigureWidget()
@@ -76,7 +76,7 @@ def graph_update(n_clicks):
     # filtering based on the slide and dropdown selection
     if n_clicks >=1:
         #program numerik ---start----
-        inout = df_inflow["Debit Air Hujan (M3/Bulan)"].values - df_outflow["Debit Air Menguap (M3/Bulan)"].values
+        inout = df_inflow["Total"].values - df_outflow["Debit Air Menguap (M3/Bulan)"].values
         N = len(inout)
         u = np.zeros(N)
         u0 = 58420 # Volume Embung Awal dari UPT Kawasan. Satuan m^3
